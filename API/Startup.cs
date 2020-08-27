@@ -7,7 +7,6 @@ using Application.Games.Queries;
 using CleanArchitecture.Application.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Persistance;
 
-namespace WebAPI
+namespace API
 {
     public class Startup
     {
@@ -29,18 +28,15 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-       
-
             services.AddTransient<IDatabaseService, DatabaseServiceMock>();
 
-            services.AddTransient<IGetGamesListQuery,GetGamesListQuery>();
+            services.AddTransient<IGetGamesListQuery, GetGamesListQuery>();
             services.AddTransient<IGetGamesListByDisciplineQuery, GetGamesListByDisciplineQuery>();
 
             services.AddTransient<IGetGameDetailsByIdQuery, GetGameDetailsByIdQuery>();
-            services.AddTransient<IAddGameCommand,AddGameCommand>();
+            services.AddTransient<IAddGameCommand, AddGameCommand>();
             services.AddTransient<IDeleteGameCommand, DeleteGameCommand>();
             services.AddControllers();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,8 +46,6 @@ namespace WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 

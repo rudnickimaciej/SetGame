@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistance
+namespace Application.Games.Commands
 {
-    public class Class1
+   public interface IDeleteGameCommand
     {
+        void Execute(int id);
     }
 }

@@ -13,7 +13,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistance", "Persistance\Persistance.csproj", "{0537B5C8-FB2E-4103-AD39-38B19B8D0648}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{23555D55-80B1-466D-9A51-28DB27CDF83F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{37D7F390-D934-4222-A576-346EA88EA059}"
+	ProjectSection(SolutionItems) = preProject
+		PLAN.txt = PLAN.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{A69E0269-E28C-43B2-9881-79AEAB1E677D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CB53823A-0BA7-47AA-A60D-D02487431CFE} = {CB53823A-0BA7-47AA-A60D-D02487431CFE}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +49,10 @@ Global
 		{0537B5C8-FB2E-4103-AD39-38B19B8D0648}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0537B5C8-FB2E-4103-AD39-38B19B8D0648}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0537B5C8-FB2E-4103-AD39-38B19B8D0648}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23555D55-80B1-466D-9A51-28DB27CDF83F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23555D55-80B1-466D-9A51-28DB27CDF83F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23555D55-80B1-466D-9A51-28DB27CDF83F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23555D55-80B1-466D-9A51-28DB27CDF83F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A69E0269-E28C-43B2-9881-79AEAB1E677D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69E0269-E28C-43B2-9881-79AEAB1E677D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A69E0269-E28C-43B2-9881-79AEAB1E677D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A69E0269-E28C-43B2-9881-79AEAB1E677D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
