@@ -8,6 +8,6 @@ namespace Application.Games.Commands
 {
    public interface IAddGameCommand
     {
-        void Execute(AddGameModel model);
+        int Execute(AddGameModel model);
     }
 }

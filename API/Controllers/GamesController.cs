@@ -59,12 +59,20 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("add")]
-        public HttpResponseMessage AddGame(AddGameModel game)
+        public HttpResponseMessage AddGame([FromBody] AddGameModel game)
         {
-            _addGameCmd.Execute(game);
+            var result = _addGameCmd.Execute(game);
 
+            if(result == 0)
+            {
+             return new HttpResponseMessage(HttpStatusCode.Created);
 
-            return new HttpResponseMessage(HttpStatusCode.Created);
+            }
+            else if( result==1)
+            {
+
+            }
+
         }
 
 

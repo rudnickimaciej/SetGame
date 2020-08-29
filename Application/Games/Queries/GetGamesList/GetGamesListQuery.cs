@@ -22,7 +22,7 @@ namespace Application.Games.Queries
         public List<GameItemListDTO> Execute()
         {
             var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<List<Game>, List<GameItemListDTO>>();
+                cfg.CreateMap<Game, GameItemListDTO>();
             });
             IMapper iMapper = config.CreateMapper();
             var source = _database.Games.ToList();

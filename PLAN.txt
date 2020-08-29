@@ -1,8 +1,36 @@
 #######REJESTRACJA U¯YTOWNIKA Z OATH (JAK PRZECHOWYWAÆ ID???)
 
 
-#######MOCKOWANIE BAZY
+####POSTAWIÆ BAZÊ Z EF
+####OBEJRZEÆ TUTORIAL Z CQRS (Zrefaktoryzowaæ kod)
 
 
-#######OGARN¥Æ AUTOMAPPER
 
+####SYSTEM NOTYFIKACJI
+
+
+
+####UI (ANGULAR?)
+
+
+
+
+Funkcjonalnoœci:
+
+1) Dodawanie gry +
+2) Usuwanie gry
+3) Edycja gry
+
+1) Zapisywanie siê do gry
+2) Wypisywanie siê do gry
+
+1) Raportowanie i banowanie gracza (np. za nieprzyjœcie lub z³e zachowanie)
+
+1) Wyszukiwanie gier po:
+  - dyscyplinie +
+  - mieœcie
+  - boisku
+  - godzinach gry
+  - liczbie graczy?
+
+2) Pozyskiwanie detali gry +

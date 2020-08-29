@@ -34,6 +34,7 @@ namespace Domain.Games
       
         public Field Field { get; set; }
         public DateTime GameDateTime { get; set; }
+
         public int GameDuration { get; set; }
         public float Price { get; set; }
         public GameStatus Status{ get; set; }

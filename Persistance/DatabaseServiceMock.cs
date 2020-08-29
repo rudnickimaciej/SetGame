@@ -19,7 +19,7 @@ namespace Persistance
 
         //public IDbSet<Discipline> Disciplines { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public List<City> Cities { get; set; }
-        public List<Player> Players { get; set; }
+        public List<Player> Players { get; private set; }
         public List<Field> Fields { get; set; }
 
         public List<Game> Games { get; set; }

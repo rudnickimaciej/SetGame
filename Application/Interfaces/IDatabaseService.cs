@@ -16,6 +16,8 @@ namespace CleanArchitecture.Application.Interfaces
         List<Player> Players { get; set; }
         List<Game> Games { get; set; }
 
+         List<Field> Fields{ get; set; }
+
         void Save();
     }
 }

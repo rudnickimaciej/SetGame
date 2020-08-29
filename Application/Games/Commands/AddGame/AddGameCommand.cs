@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Application.Interfaces;
+﻿using AutoMapper;
+using CleanArchitecture.Application.Interfaces;
 using Domain.Games;
 using Domain.Players;
 using System;
@@ -14,10 +15,16 @@ namespace Application.Games.Commands
             _database = database;
         }
 
-        public void Execute(AddGameModel model)
+        public int Execute(AddGameModel model)
         {
-           
-              
+            var config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<AddGameModel, Game>();
+            });
+            IMapper iMapper = config.CreateMapper();
+            var destination = iMapper.Map< AddGameModel, Game> (model);
+            destination.Author = _database.Players.Find(p => p.Id.Equals(model.AuthorId));
+            destination.Field = _database.Fields.FindLast(f => f.Id.Equals(model.FieldId));
+            var result = _database.Games.Add(destination);
 
         }
     }
