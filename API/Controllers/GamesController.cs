@@ -63,6 +63,7 @@ namespace API.Controllers
             return _getGamesByDisciplineQuery.Execute(discipline);
         }
 
+
         [HttpPost]
         [Route("add")]
         public ActionResult<GameDetailsDTO> AddGame([FromBody] AddGameModel game)
@@ -81,7 +82,35 @@ namespace API.Controllers
 
 
         }
+        [HttpPut]
+        [Route("update/{id:int}")]
+        public async Task<IActionResult> PutGame([FromBody] UpdateGameModel game)
+        {
+            if (id != samurai.Id)
+            {
+                return BadRequest();
+            }
 
+            _context.Entry(samurai).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!SamuraiExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
 
         [HttpDelete]
         [Route("delete/{gameId}")]
