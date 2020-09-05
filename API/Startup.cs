@@ -27,10 +27,10 @@ namespace API
           
             services.AddTransient<IDatabaseService, DatabaseService>();
 
-            services.AddDbContext<DatabaseService>(opt =>
-            opt.UseSqlServer(Configuration.GetConnectionString("SoccerConnection"))
-            .EnableSensitiveDataLogging()
-         );
+         //   services.AddDbContext<DatabaseService>(opt =>
+         //   opt.UseSqlServer(Configuration.GetConnectionString("SoccerConnection"))
+         //   .EnableSensitiveDataLogging()
+         //);
 
             services.AddTransient<IGetGamesListQuery, GetGamesListQuery>();
             services.AddTransient<IGetGamesListByDisciplineQuery, GetGamesListByDisciplineQuery>();

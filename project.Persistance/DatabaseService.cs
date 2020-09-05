@@ -28,6 +28,7 @@ namespace project.Persistance
         public DatabaseService(IConfiguration configuration)
         {
             Configuration = configuration;
+           // ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking; --dla czytania
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

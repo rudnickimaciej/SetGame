@@ -46,35 +46,39 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("{id:int}")]
-        public GameDetailsDTO GetGameById(int id)
+        public ActionResult<GameDetailsDTO> GetGameById(int id)
         {
-            return _getGamesDetailsQuery.Execute(id);
+            var game = _getGamesDetailsQuery.Execute(id);
+            if (game==null) return BadRequest("Nie ma gry o takim id");
+
+            return game;
         }
 
 
         [HttpGet]
         [Route("~/api/disciplines/{discipline:alpha}/games")]
-        public IEnumerable<GameItemListDTO> GetGameByDiscipline(string discipline)
+        public ActionResult<IEnumerable<GameItemListDTO>> GetGameByDiscipline(string discipline)
         {
+          //TODO: sprawdzić czy discipline istnieje
             return _getGamesByDisciplineQuery.Execute(discipline);
         }
 
         [HttpPost]
         [Route("add")]
-        public HttpResponseMessage AddGame([FromBody] AddGameModel game)
+        public ActionResult<GameDetailsDTO> AddGame([FromBody] AddGameModel game)
         {
-            var result = _addGameCmd.Execute(game);
+            var newGameId = _addGameCmd.Execute(game);
 
-            if(result == 0)
+            if (newGameId!>0)
             {
-             return new HttpResponseMessage(HttpStatusCode.Created);
+                return  BadRequest("Nie udało się stworzyć gry");
 
             }
-            else if( result==1)
+            else
             {
-                return new HttpResponseMessage();
-            }
-            return new HttpResponseMessage();
+                return CreatedAtAction("GetGame", new { id = newGameId });
+            };
+
 
         }
 
