@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200904165925_game_player_added-many-to-many-reference.cs" />
+    <Compile Remove="Migrations\20200904165925_game_player_added-many-to-many-reference.Designer.cs" />
+    <Compile Remove="Migrations\20200904170331_game_player_added-many-to-many-reference.cs" />
+    <Compile Remove="Migrations\20200904170331_game_player_added-many-to-many-reference.Designer.cs" />
+    <Compile Remove="Migrations\20200904171251_classes_removed-unneeded-virtuals.cs" />
+    <Compile Remove="Migrations\20200904171251_classes_removed-unneeded-virtuals.Designer.cs" />
+    <Compile Remove="Migrations\20200904171754_gameenrollment_added-additional-foreignkeys.cs" />
+    <Compile Remove="Migrations\20200904171754_gameenrollment_added-additional-foreignkeys.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\project.Application\project.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Configuration">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Configuration.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

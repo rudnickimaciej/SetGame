@@ -86,6 +86,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fields\DTOs\FieldDetailsDTO.cs" />
     <Compile Include="Games\Commands\AddGame\AddGameCommand.cs" />
     <Compile Include="Games\Commands\AddGame\AddGameModel.cs" />
     <Compile Include="Games\Commands\AddGame\IAddGameCommand.cs" />
@@ -103,10 +104,9 @@
     <Compile Include="Games\Queries\GetGamesListByDiscipline\IGetGamesListByDisciplineQuery.cs" />
     <Compile Include="Games\Queries\GetGamesList\GetGamesListQuery.cs" />
     <Compile Include="Games\Queries\GetGamesList\IGetGamesListQuery.cs" />
-    <Compile Include="Interfaces\IDatabaseService.cs" />
     <Compile Include="Players\Queries\GetPlayerDetails\GetPlayerDetailsQuery.cs" />
     <Compile Include="Players\Queries\GetPlayerDetails\IGetPlayerDetailsQuery.cs" />
-    <Compile Include="Players\Queries\GetPlayerDetails\PlayerDetailsModel.cs" />
+    <Compile Include="Players\Queries\GetPlayerDetails\PlayerDetailsDTO.cs" />
     <Compile Include="Players\Queries\GetPlayersList\GetPlayerListQuery.cs" />
     <Compile Include="Players\Queries\GetPlayersList\IGetPlayerListQuery.cs" />
     <Compile Include="Players\Queries\GetPlayersList\PlayerItemListModel.cs" />

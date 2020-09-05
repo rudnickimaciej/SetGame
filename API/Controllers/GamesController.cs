@@ -15,19 +15,20 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GamesController : ControllerBase
+    public class GamesController : BaseController
     {
+  
 
         private readonly IGetGamesListQuery _getGamesQuery;
         private readonly IGetGamesListByDisciplineQuery _getGamesByDisciplineQuery;
-
         private readonly IGetGameDetailsByIdQuery _getGamesDetailsQuery;
-
         private readonly IAddGameCommand _addGameCmd;
         private readonly IDeleteGameCommand _deleteGameCmd;
 
-        public GamesController(IGetGamesListQuery query, IGetGamesListByDisciplineQuery getGamesByDisciplineQuery, IGetGameDetailsByIdQuery getGamesDetailsQuery, IAddGameCommand addGameCmd, IDeleteGameCommand deletGameCmd)
+        public GamesController( IGetGamesListQuery query, IGetGamesListByDisciplineQuery getGamesByDisciplineQuery, IGetGameDetailsByIdQuery getGamesDetailsQuery, IAddGameCommand addGameCmd, IDeleteGameCommand deletGameCmd)
         {
+
+
             _getGamesQuery = query;
             _getGamesByDisciplineQuery = getGamesByDisciplineQuery;
 
@@ -57,6 +58,7 @@ namespace API.Controllers
         {
             return _getGamesByDisciplineQuery.Execute(discipline);
         }
+
         [HttpPost]
         [Route("add")]
         public HttpResponseMessage AddGame([FromBody] AddGameModel game)
@@ -70,8 +72,9 @@ namespace API.Controllers
             }
             else if( result==1)
             {
-
+                return new HttpResponseMessage();
             }
+            return new HttpResponseMessage();
 
         }
 

@@ -2,13 +2,10 @@
 using Application.Players.Queries.GetPlayerDetails;
 using AutoMapper;
 using CleanArchitecture.Application.Interfaces;
-using Domain.Games;
-using Domain.Players;
+using Domain.Models;
 using System;
-using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Games.Queries
 {
@@ -17,26 +14,24 @@ namespace Application.Games.Queries
 
         private readonly IDatabaseService _database;
 
-       
-
         public GetGameDetailsByIdQuery(IDatabaseService database)
         {
             _database = database;
-        } 
+        }
+
         public GameDetailsDTO Execute(int id)
         {
-            var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Game, GameDetailsDTO>()
-                .ForMember(dest => dest.CityName, act => act.MapFrom(src => src.Field.City))
-                .ForMember(dest => dest.StreetName, act => act.MapFrom(src => src.Field.Street))
-                .ForMember(dest => dest.StreetName, act => act.MapFrom(src => src.Field.Street));
-                cfg.CreateMap<Player, PlayerDetailsModel>();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Game, GameDetailsDTO>(); 
+                cfg.CreateMap<Player, PlayerDetailsDTO>();
+               
 
             });
             IMapper iMapper = config.CreateMapper();
-            var source = _database.Games.Where(g => g.Id == id).FirstOrDefault();
+            var source2 = _database.Games.Take(3);
+            var source = _database.Games.Where(g => g.Id.Equals(id)).FirstOrDefault();
             var destination = iMapper.Map<Game, GameDetailsDTO>(source);
-
 
             return destination;
         }

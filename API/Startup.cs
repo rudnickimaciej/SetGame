@@ -1,18 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Application.Games.Commands;
 using Application.Games.Queries;
-using CleanArchitecture.Application.Interfaces;
+using project.Application.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Persistance;
+using project.Persistance;
+using Microsoft.EntityFrameworkCore;
 
 namespace API
 {
@@ -28,7 +23,14 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IDatabaseService, DatabaseServiceMock>();
+
+          
+            services.AddTransient<IDatabaseService, DatabaseService>();
+
+            services.AddDbContext<DatabaseService>(opt =>
+            opt.UseSqlServer(Configuration.GetConnectionString("SoccerConnection"))
+            .EnableSensitiveDataLogging()
+         );
 
             services.AddTransient<IGetGamesListQuery, GetGamesListQuery>();
             services.AddTransient<IGetGamesListByDisciplineQuery, GetGamesListByDisciplineQuery>();
@@ -36,6 +38,7 @@ namespace API
             services.AddTransient<IGetGameDetailsByIdQuery, GetGameDetailsByIdQuery>();
             services.AddTransient<IAddGameCommand, AddGameCommand>();
             services.AddTransient<IDeleteGameCommand, DeleteGameCommand>();
+
             services.AddControllers();
         }
 
