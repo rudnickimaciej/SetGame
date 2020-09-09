@@ -1,11 +1,11 @@
-﻿using Application.Games.DTOs;
+﻿using project.Application.Games;
 using System.Collections.Generic;
 
 
-namespace Application.Games.Queries
+namespace project.Application.Games
 {
     public interface IGetGamesListByDisciplineQuery
     {
-        List<GameItemListDTO> Execute(string discipline);
+        List<GameItemListDto> Execute(string discipline);
     }
 }

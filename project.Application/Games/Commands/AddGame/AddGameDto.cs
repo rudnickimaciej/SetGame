@@ -1,6 +1,6 @@
-﻿namespace Application.Games.Commands
+﻿namespace project.Application.Games
 {
-   public class AddGameModel
+   public class AddGameDto
     {
         public int FieldId{ get; set; }
         public string GameDateTime { get; set; }

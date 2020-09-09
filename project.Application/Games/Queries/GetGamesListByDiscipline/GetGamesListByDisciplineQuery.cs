@@ -1,4 +1,4 @@
-﻿using Application.Games.DTOs;
+﻿using project.Application.Games;
 using AutoMapper;
 using project.Application.Interfaces;
 using Domain.Models;
@@ -6,29 +6,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Application.Games.Queries
+namespace project.Application.Games
 {
-    public class GetGamesListByDisciplineQuery : IGetGamesListByDisciplineQuery
+    public class GetGamesListByDisciplineQuery : IQuery<List<GameItemListDto>>
     {
-    
-        private readonly IDatabaseService _database;
 
-        public GetGamesListByDisciplineQuery(IDatabaseService database)
+        public GetGamesListByDisciplineQuery(string discipline, int count=10)
         {
-
-            _database = database;
+            this.Discipline = discipline;
+            this.Count = count;
         }
 
-        public List<GameItemListDTO> Execute(string discipline)
-        {
-            var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Game, GameItemListDTO>();
-            });
-            IMapper iMapper = config.CreateMapper();
-            //var source = _database.Games.Where<Game>(g=>g.Discipline.ToString().Equals(discipline,StringComparison.OrdinalIgnoreCase)).ToList();
-            //var destination = iMapper.Map<List<Game>, List<GameItemListDTO>>(source);
-            // return destination;
-            throw new Exception();
-        }
+        public string Discipline { get; set; }
+        public int Count { get; set; }
+
+
     }
 }

@@ -13,6 +13,7 @@ namespace project.Persistance
 
          public DbSet<Player> Players { get; set; }
         public DbSet<Game> Games { get; set; }
+        public  DbSet<Field> Fields { get; set; }
 
         IConfiguration Configuration;
 

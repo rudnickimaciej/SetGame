@@ -5,8 +5,8 @@ using System.Text;
 
 namespace project.Application.Interfaces
 {
-    public interface ICommandHandler<TCommand> where TCommand:ICommand
+    public interface IQueryHandler<TQuery,TResult> where TQuery:IQuery<TResult>
     {
-        Result Handle(TCommand command);
+        TResult Handle(TQuery query);
     }
 }

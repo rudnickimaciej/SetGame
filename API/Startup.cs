@@ -1,5 +1,4 @@
-using Application.Games.Commands;
-using Application.Games.Queries;
+using project.Application.Games;
 using project.Application.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,7 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using project.Persistance;
-using Microsoft.EntityFrameworkCore;
+using project.Application;
+using System.Collections.Generic;
+
 
 namespace API
 {
@@ -24,19 +25,23 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
 
-          
+            
+
+            services.AddSingleton<Messages>();
             services.AddTransient<IDatabaseService, DatabaseService>();
+            services.AddTransient<IQueryHandler<GetGameListQuery, List<GameItemListDto>>, GetGameListQueryHandler>();
+            services.AddTransient<IQueryHandler<GetGamesListByDisciplineQuery, List<GameItemListDto>>, GetGamesListByDisciplineQueryHandler>();
 
-         //   services.AddDbContext<DatabaseService>(opt =>
-         //   opt.UseSqlServer(Configuration.GetConnectionString("SoccerConnection"))
-         //   .EnableSensitiveDataLogging()
-         //);
+            services.AddTransient<ICommandHandler<AddGameCommand>, AddGameCommandHandler>();
 
-            services.AddTransient<IGetGamesListQuery, GetGamesListQuery>();
-            services.AddTransient<IGetGamesListByDisciplineQuery, GetGamesListByDisciplineQuery>();
+            //   services.AddDbContext<DatabaseService>(opt =>
+            //   opt.UseSqlServer(Configuration.GetConnectionString("SoccerConnection"))
+            //   .EnableSensitiveDataLogging()
+            //);
+
+           
 
             services.AddTransient<IGetGameDetailsByIdQuery, GetGameDetailsByIdQuery>();
-            services.AddTransient<IAddGameCommand, AddGameCommand>();
             services.AddTransient<IDeleteGameCommand, DeleteGameCommand>();
 
             services.AddControllers();

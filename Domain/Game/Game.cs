@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Domain.Models;
 
 namespace Domain.Models
 {
@@ -26,7 +25,7 @@ namespace Domain.Models
         private readonly IList<GameEnrollment> _enrollments = new List<GameEnrollment>();
         public virtual IReadOnlyList<GameEnrollment> Enrollments => _enrollments.ToList();
 
-        public void AddPlayer(GameEnrollment player)
+        public void RegisterPlayer(Player player)
         {
 
             if (Enrollments.Where<GameEnrollment>(p => p.Id.Equals(player.Id)).First<GameEnrollment>() != null)
@@ -37,8 +36,8 @@ namespace Domain.Models
             {
                 throw new Exception("There are no free slots");
             }
-
-            _enrollments.Add(player);
+            GameEnrollment enrollment = new GameEnrollment() { Game = this, Player = player };
+            _enrollments.Add(enrollment);
         }
 
         public void RemovePlayer(int playerId)

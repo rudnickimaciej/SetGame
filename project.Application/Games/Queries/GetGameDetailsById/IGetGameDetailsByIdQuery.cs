@@ -1,11 +1,11 @@
-﻿using Application.Games.DTOs;
+﻿using project.Application.Games;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Games.Queries
+namespace project.Application.Games
 {
     public interface IGetGameDetailsByIdQuery
     {

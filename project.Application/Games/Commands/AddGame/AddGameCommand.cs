@@ -2,31 +2,28 @@
 using project.Application.Interfaces;
 using System;
 
-namespace Application.Games.Commands
+namespace project.Application.Games
 {
-    public class AddGameCommand : IAddGameCommand
+    public class AddGameCommand : ICommand
     {
-        private readonly IDatabaseService _database;
+        public int FieldId { get; }
+        public string GameDateTime { get; }
+        public int GameDuration { get; }
+        public float Price { get; }
+        public string Discipline { get; }
+        public int SlotsCount { get; }
+        public int AuthorId { get; }
 
-        public AddGameCommand(IDatabaseService database)
+
+        public AddGameCommand(int fieldId, string gameDateTime, int gameDuration, float price, string discipline, int slotsCount, int authorId)
         {
-
-            _database = database;
-        }
-
-        public int Execute(AddGameModel model)
-        {
-            //var config = new MapperConfiguration(cfg => {
-            //    cfg.CreateMap<AddGameModel, Game>();
-            //});
-            //IMapper iMapper = config.CreateMapper();
-            //var destination = iMapper.Map< AddGameModel, Game> (model);
-            //destination.Author = _database.Players.Find(p => p.Id.Equals(model.AuthorId));
-            //destination.Field = _database.Fields.FindLast(f => f.Id.Equals(model.FieldId));
-            //var result = _database.Games.Add(destination);
-
-            throw new Exception();
-
+            FieldId = fieldId;
+            GameDateTime = gameDateTime;
+            GameDuration = gameDuration;
+            Price = price;
+            Discipline = discipline;
+            SlotsCount = slotsCount;
+            AuthorId = authorId;
         }
     }
 }

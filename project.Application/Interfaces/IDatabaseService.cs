@@ -7,6 +7,7 @@ namespace project.Application.Interfaces
     {
         DbSet<Player> Players { get; set; }
         DbSet<Game> Games { get; set; }
+        DbSet<Field> Fields { get; set; }
         void Save();
     }
 }

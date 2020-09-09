@@ -1,6 +1,6 @@
 ﻿
 
-namespace Application.Games.Commands
+namespace project.Application.Games.Commands
 {
     class UnregisterPlayerCommand : IUnregisterPlayerCommand
     {

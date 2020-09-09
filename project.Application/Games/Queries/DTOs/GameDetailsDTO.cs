@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Games.DTOs
+namespace project.Application.Games
 {
     public class GameDetailsDTO
     {
@@ -27,9 +27,4 @@ namespace Application.Games.DTOs
         public List<PlayerDetailsDTO> Players{ get; set; }
     }
 
-
-    public class GameDetailsModelComplex
-    {
-
-    }
 }

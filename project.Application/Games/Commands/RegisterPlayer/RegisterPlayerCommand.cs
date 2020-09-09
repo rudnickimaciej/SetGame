@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using project.Application.Interfaces;
 
-namespace Application.Games.Commands
+namespace project.Application.Games
 {
-    public class RegisterPlayerCommand : IRegisterPlayerCommand
+    public class RegisterPlayerCommand : ICommand
     {
-        //private readonly IDatabaseService _database;
-        public void Execute(int playerId, int gameId)
+        public RegisterPlayerCommand(int playerId, int gameId)
         {
-            //var game = _database.Games.Where(g => g.Id == gameId).FirstOrDefault();
-            //var player = _database.Players.Where(p => p.Id == playerId).FirstOrDefault();
-
-           // game.AddPlayer(player);
+            PlayerId = playerId;
+            GameId = gameId;
         }
+
+        public int PlayerId { get; set; }
+        public int GameId { get; set; }
+
     }
 }
