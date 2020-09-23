@@ -13,7 +13,7 @@ namespace project.API.Profiles
     public class GameProfile : Profile
     {
         
-        public GameProfile()
+        public GameProfile()//
         {
             CreateMap<Player, PlayerDetailsDTO>();
             CreateMap<Game, GameDetailsDto>()
