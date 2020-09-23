@@ -8,7 +8,9 @@ using Microsoft.Extensions.Hosting;
 using project.Persistance;
 using project.Application;
 using System.Collections.Generic;
-
+using Microsoft.AspNetCore.Mvc.Formatters;
+using AutoMapper;
+using System;
 
 namespace API
 {
@@ -25,12 +27,14 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddSingleton<Messages>();
             services.AddTransient<IDatabaseService, DatabaseService>();
             services.AddTransient<IQueryHandler<GetGameListQuery, List<GameItemListDto>>, GetGameListQueryHandler>();
             services.AddTransient<IQueryHandler<GetGamesListByDisciplineQuery, List<GameItemListDto>>, GetGamesListByDisciplineQueryHandler>();
+            services.AddTransient<IQueryHandler<GetGameByIdQuery, GameDetailsDto>, GetGameByIdQueryHandler>();
 
             services.AddTransient<ICommandHandler<AddGameCommand>, AddGameCommandHandler>();
 
@@ -39,12 +43,12 @@ namespace API
             //   .EnableSensitiveDataLogging()
             //);
 
-           
 
-            services.AddTransient<IGetGameDetailsByIdQuery, GetGameDetailsByIdQuery>();
-            services.AddTransient<IDeleteGameCommand, DeleteGameCommand>();
+            services.AddControllers(setupAction =>
+            {
+                setupAction.ReturnHttpNotAcceptable = true;
+            }).AddXmlDataContractSerializerFormatters();
 
-            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

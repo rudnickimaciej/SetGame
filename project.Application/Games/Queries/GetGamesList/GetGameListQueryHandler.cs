@@ -15,8 +15,10 @@ namespace project.Application.Games
     public class GetGameListQueryHandler : IQueryHandler<GetGameListQuery, List<GameItemListDto>>
     {
         private readonly IConfiguration _configuration;
-        public GetGameListQueryHandler(IConfiguration configuration)
+        private readonly IMapper _mapper;
+        public GetGameListQueryHandler(IConfiguration configuration, IMapper mapper)
         {
+            _mapper = mapper;
             _configuration = configuration;
         }
 

@@ -21,7 +21,8 @@ namespace project.Application.Games
             var player = _database.Players.Find(command.PlayerId);
             var game = _database.Games.Find(command.GameId);
 
-            game.RegisterPlayer(player);
+            if (player != null && game != null)
+                game.RegisterPlayer(player);
             return Result.Success();
         }
     }
