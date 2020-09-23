@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using project.Application.Interfaces;
 using project.Application;
 using project.Application.Games;
+using AutoMapper;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace API.Controllers
@@ -19,20 +20,16 @@ namespace API.Controllers
     {
         private readonly Messages _messages;
 
-
-        private readonly IGetGameDetailsByIdQuery _getGamesDetailsQuery;
-        private readonly IDeleteGameCommand _deleteGameCmd;
-
         private readonly IDatabaseService _database;
 
-        public GamesController(Messages messages,IDatabaseService database, IGetGameDetailsByIdQuery getGamesDetailsQuery,  IDeleteGameCommand deletGameCmd)
-        {
+        private readonly IMapper _mapper;
+
+
+        public GamesController(Messages messages, IDatabaseService database, IMapper mapper) 
+        { 
             _messages = messages;
-            _database = database;  
-
-            _getGamesDetailsQuery = getGamesDetailsQuery;
-
-            _deleteGameCmd = deletGameCmd;
+            _database = database;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -45,13 +42,13 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("{id:int}")]
-        public ActionResult<GameDetailsDTO> GetGameById(int id)
+        public IActionResult GetGameById(int id)
         {
-            var game = _getGamesDetailsQuery.Execute(id);
+            var game = _messages.Dispatch<GameDetailsDto>(new GetGameByIdQuery(id));
 
-            if (game==null) return BadRequest("Nie ma gry o takim id");
+            if (game == null) return NotFound();
 
-            return game;
+            return Ok(game);
         }
 
 
@@ -117,9 +114,19 @@ namespace API.Controllers
         [Route("delete/{gameId}")]
         public HttpResponseMessage DeleteGame(int gameId)
         {
-            _deleteGameCmd.Execute(gameId);
+          
             return new HttpResponseMessage(HttpStatusCode.OK);
 
+        }
+
+        [HttpPost]
+        [Route("games/{gameId}/register")]
+        public IActionResult RegisterPlayer(int gameId, int playerId)
+        {
+            var command = new RegisterPlayerCommand(playerId, gameId);
+            var result = _messages.Dispatch(command);
+
+            return result.IsSuccess ? Ok() : Error(result.Error);
         }
     }
 }

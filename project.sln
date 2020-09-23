@@ -3,24 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{D3CCB02E-810B-4CA8-8B2E-42F1B7B148CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project.Domain", "Domain\project.Domain.csproj", "{D3CCB02E-810B-4CA8-8B2E-42F1B7B148CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{7CCF1E1D-564A-4F61-9851-4B43C8703B5C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{CACB1758-5D40-47A3-986B-968C27BAA5FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project.Common", "Common\project.Common.csproj", "{7CCF1E1D-564A-4F61-9851-4B43C8703B5C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{37D7F390-D934-4222-A576-346EA88EA059}"
 	ProjectSection(SolutionItems) = preProject
 		PLAN.txt = PLAN.txt
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{A69E0269-E28C-43B2-9881-79AEAB1E677D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project.API", "API\project.API.csproj", "{A69E0269-E28C-43B2-9881-79AEAB1E677D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project.Persistance", "project.Persistance\project.Persistance.csproj", "{E8F891F7-3454-4AAB-855D-9039C429EBD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project.Persistance", "project.Persistance\project.Persistance.csproj", "{E8F891F7-3454-4AAB-855D-9039C429EBD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingConsole", "TestingConsole\TestingConsole.csproj", "{71C0161B-BBA3-41C2-B7DF-B3CD758F136F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project.Application", "project.Application\project.Application.csproj", "{EBF6D027-17EF-43F3-A4A1-8529407BAB51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project.Application", "project.Application\project.Application.csproj", "{EBF6D027-17EF-43F3-A4A1-8529407BAB51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,10 +32,6 @@ Global
 		{7CCF1E1D-564A-4F61-9851-4B43C8703B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CCF1E1D-564A-4F61-9851-4B43C8703B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CCF1E1D-564A-4F61-9851-4B43C8703B5C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CACB1758-5D40-47A3-986B-968C27BAA5FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CACB1758-5D40-47A3-986B-968C27BAA5FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CACB1758-5D40-47A3-986B-968C27BAA5FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CACB1758-5D40-47A3-986B-968C27BAA5FE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A69E0269-E28C-43B2-9881-79AEAB1E677D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A69E0269-E28C-43B2-9881-79AEAB1E677D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A69E0269-E28C-43B2-9881-79AEAB1E677D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -48,10 +40,6 @@ Global
 		{E8F891F7-3454-4AAB-855D-9039C429EBD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8F891F7-3454-4AAB-855D-9039C429EBD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8F891F7-3454-4AAB-855D-9039C429EBD6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{71C0161B-BBA3-41C2-B7DF-B3CD758F136F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{71C0161B-BBA3-41C2-B7DF-B3CD758F136F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{71C0161B-BBA3-41C2-B7DF-B3CD758F136F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{71C0161B-BBA3-41C2-B7DF-B3CD758F136F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EBF6D027-17EF-43F3-A4A1-8529407BAB51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EBF6D027-17EF-43F3-A4A1-8529407BAB51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBF6D027-17EF-43F3-A4A1-8529407BAB51}.Release|Any CPU.ActiveCfg = Release|Any CPU
